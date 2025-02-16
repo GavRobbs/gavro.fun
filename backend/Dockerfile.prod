@@ -1,0 +1,20 @@
+FROM python:latest
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN python -m pip install --no-cache-dir -r requirements.txt
+RUN python -m pip install gunicorn
+
+RUN python ./gfunbackend/manage.py collectstatic --noinput
+
+COPY . .
+
+EXPOSE 8000
+
+ENV DJANGO_SETTINGS_MODULE=gfunbackend.settings.prod
+
+WORKDIR /app/gfunbackend
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "gfunbackend.wsgi:application", "--workers", "4", "--timeout", "60"]
