@@ -1,5 +1,6 @@
 from pathlib import Path
 from decouple import config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,13 +50,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gfunbackend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -107,5 +101,7 @@ STORAGES = {
 # URLs for accessing uploaded files
 #MEDIA_URL = f"{config('DO_BUCKET_URL')}/media/"
 STATIC_URL = "/static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  
 
 ENABLE_ADMIN = config('DJANGO_ENABLE_ADMIN', default="False", cast=bool)
