@@ -50,8 +50,8 @@ function App() {
       <footer>
         <p>© 2025 Gavin Robinson</p>
         <div className="footer-buttons">
-          <a href="#">Contact/Hire Me</a>
-          <a href="#">Read My Blog</a>
+          <a href="https://blog.gavro.fun/about/">About Me</a>
+          <a href="https://blog.gavro.fun">Read My Blog</a>
         </div>
       </footer>
     </>
