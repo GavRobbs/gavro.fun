@@ -101,7 +101,7 @@ STORAGES = {
             'bucket_name' : config('DO_BUCKET_NAME'),
             'region_name' : config('DO_REGION_NAME'),
             'endpoint_url' : config('DO_ENDPOINT_URL'),
-            'location' : 'media'
+            'location' : 'static'
         },
         'file_overwrite' : False,
     }
