@@ -9,11 +9,27 @@ RUN python -m pip install gunicorn
 
 COPY . .
 
+#Apparently I have to do this, because docker compose variables are only available at runtime
+#This makes them visible at build time
+ARG DJANGO_SECRET_KEY
+ARG DO_ACCESS_KEY_ID
+ARG DO_SECRET_ACCESS_KEY
+ARG DO_BUCKET_NAME
+ARG DO_ENDPOINT_URL
+ARG DO_REGION_NAME
+ENV DO_ACCESS_KEY_ID=$DO_ACCESS_KEY_ID
+ENV DO_SECRET_ACCESS_KEY=$DO_SECRET_ACCESS_KEY
+ENV DO_BUCKET_NAME=$DO_BUCKET_NAME
+ENV DO_ENDPOINT_URL=$DO_ENDPOINT_URL
+ENV DO_REGION_NAME=$DO_REGION_NAME
+ENV DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+
+ENV DJANGO_SETTINGS_MODULE=gfunbackend.settings.prod
+
 RUN python ./gfunbackend/manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-ENV DJANGO_SETTINGS_MODULE=gfunbackend.settings.prod
 
 WORKDIR /app/gfunbackend
 
