@@ -18,6 +18,7 @@ services:
     volumes:
       - ./nginx/nginx-prod.conf:/etc/nginx/conf.d/default.conf
       - /etc/letsencrypt:/etc/letsencrypt
+      - /var/www/home:/var/www/home
     depends_on:
       - backend
 
