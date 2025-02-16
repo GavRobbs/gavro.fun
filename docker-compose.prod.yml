@@ -57,5 +57,6 @@ services:
       WORDPRESS_TABLE_PREFIX: wp_
       WORDPRESS_SITEURL: "https://blog.gavro.fun"
       WORDPRESS_HOME: "https://blog.gavro.fun"
+      APACHE_SERVER_NAME: blog.gavro.fun
     volumes:
       - /var/www/wordpress:/var/www/html
