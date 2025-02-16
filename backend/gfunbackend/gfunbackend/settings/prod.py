@@ -1,11 +1,12 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['gavro.fun', 'api.gavro.fun', '127.0.0.1']
+ALLOWED_HOSTS = ['api.gavro.fun', 'gavro.fun']
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
     'https://gavro.fun'
 ]
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+
 
 DATABASES = {
     'default': {
