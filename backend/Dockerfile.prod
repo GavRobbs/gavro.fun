@@ -49,7 +49,7 @@ ENV DJANGO_SUPERUSER_PASSWORD=$DJANGO_SUPERUSER_PASSWORD
 
 WORKDIR /app/gfunbackend
 
-RUN python manage.py collectstatic
+RUN python manage.py collectstatic --noinput
 RUN python manage.py createsuperuser --noinput --username=$DJANGO_SUPERUSER_NAME --email=$DJANGO_SUPERUSER_EMAIL
 
 EXPOSE 8000
