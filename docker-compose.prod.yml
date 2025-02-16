@@ -55,5 +55,7 @@ services:
       WORDPRESS_DB_PASSWORD: "${WP_DB_PASSWORD}"
       WORDPRESS_DB_NAME: "${WP_DB_NAME}"
       WORDPRESS_TABLE_PREFIX: wp_
+      WORDPRESS_SITEURL: "https://blog.gavro.fun"
+      WORDPRESS_HOME: "https://blog.gavro.fun"
     volumes:
       - /var/www/wordpress:/var/www/html
