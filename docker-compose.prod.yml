@@ -4,9 +4,9 @@ services:
     build:
       context: ./frontend/
       dockerfile: Dockerfile.prod
+      args:
+        API_URL: "https://api.gavro.fun"
     container_name: frontend
-    args:
-      API_URL: "https://api.gavro.fun"
     environment:
       API_URL: "https://api.gavro.fun"
     volumes:
