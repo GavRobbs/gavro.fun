@@ -56,7 +56,4 @@ services:
       WORDPRESS_DB_NAME: "${WP_DB_NAME}"
       WORDPRESS_TABLE_PREFIX: wp_
     volumes:
-      - wordpress_data:/var/www/html
-
-volumes:
-  wordpress_data:
+      - /var/www/wordpress:/var/www/html
