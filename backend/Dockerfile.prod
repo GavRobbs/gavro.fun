@@ -40,8 +40,6 @@ ENV DB_PORT=$DB_PORT
 ENV DB_NAME=$DB_NAME
 ENV DB_CA_CERT_PATH=$DB_CA_CERT_PATH
 
-RUN python ./gfunbackend/manage.py collectstatic --noinput
-
 EXPOSE 8000
 
 
