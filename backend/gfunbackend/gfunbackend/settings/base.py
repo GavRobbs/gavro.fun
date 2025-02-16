@@ -94,7 +94,7 @@ STORAGES = {
         
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "BACKEND": "storages.backends.s3.S3Storage",
         'OPTIONS': {
             'access_key' : config('DO_ACCESS_KEY_ID'),
             'secret_key' : config('DO_SECRET_ACCESS_KEY'),
