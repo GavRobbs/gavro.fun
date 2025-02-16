@@ -100,7 +100,16 @@ STORAGES = {
         
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        'BACKEND': 'storages.backends.s3.S3Storage',
+        'OPTIONS': {
+            'access_key' : config('DO_ACCESS_KEY_ID'),
+            'secret_key' : config('DO_SECRET_ACCESS_KEY'),
+            'bucket_name' : config('DO_BUCKET_NAME'),
+            'region_name' : config('DO_REGION_NAME'),
+            'endpoint_url' : config('DO_ENDPOINT_URL'),
+            'location' : 'static'
+        },
+        'file_overwrite' : False,
     }
 }
 
