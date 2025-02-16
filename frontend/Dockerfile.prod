@@ -10,8 +10,10 @@ RUN npm install
 
 COPY . .
 ARG API_URL
-ENV VITE_API_URL=$API_URL 
-RUN npm run build
+ENV VITE_API_URL=$API_URL
+
+#Explictly pass it
+RUN VITE_API_URL=$API_URL npm run build
 
 COPY entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
