@@ -29,6 +29,7 @@ services:
     container_name: api
     volumes:
       - ./backend:/app
+      - /etc/dbcert:/etc/dbcert
     restart: always    
     environment:
       DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY}"
