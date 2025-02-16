@@ -8,13 +8,16 @@ import W2PLogo from "./assets/w2pn.png";
 import EmbargoLogo from "./assets/embargo.png"
 import Entry from './components/Entry'
 
+
 function App() {
 
   const [gameList, setGameList] = useState([]);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
 
-    fetch("http://api.localhost/games/", {
+    fetch(`${apiUrl}/games/`, {
       method: "GET",
       headers: {
         "Content-Type" : "application/json"

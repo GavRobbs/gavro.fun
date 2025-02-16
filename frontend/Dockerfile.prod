@@ -9,6 +9,8 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
+ARG VITE_API_URL
+ENV VITE_API_URL=$API_URL 
 RUN npm run build
 
 COPY entrypoint.sh entrypoint.sh

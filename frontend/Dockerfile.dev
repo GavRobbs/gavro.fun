@@ -11,6 +11,9 @@ RUN npm install
 # Copy the rest of the app
 COPY . .
 
+ARG VITE_API_URL
+ENV VITE_API_URL=$API_URL 
+
 # Expose Vite's ports
 EXPOSE 5173 24678
 
