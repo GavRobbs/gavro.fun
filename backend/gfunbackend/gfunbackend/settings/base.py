@@ -95,12 +95,25 @@ STORAGES = {
     },
     "staticfiles": {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        'OPTIONS': {
+            'access_key' : config('DO_ACCESS_KEY_ID'),
+            'secret_key' : config('DO_SECRET_ACCESS_KEY'),
+            'bucket_name' : config('DO_BUCKET_NAME'),
+            'region_name' : config('DO_REGION_NAME'),
+            'endpoint_url' : config('DO_ENDPOINT_URL'),
+            'location' : 'media'
+        },
+        'file_overwrite' : False,
     }
 }
 
 # URLs for accessing uploaded files
 #MEDIA_URL = f"{config('DO_BUCKET_URL')}/media/"
-STATIC_URL = "/static/"
+# Static files (CSS, JS, etc.)
+STATIC_URL = f"https://{config('DO_BUCKET_NAME')}.{config('DO_ENDPOINT_URL').replace('https://', '')}/static/"
+
+# Media files (uploads)
+MEDIA_URL = f"https://{config('DO_BUCKET_NAME')}.{config('DO_ENDPOINT_URL').replace('https://', '')}/media/"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  
 
