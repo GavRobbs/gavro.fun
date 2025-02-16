@@ -49,6 +49,10 @@ services:
       DB_NAME: "${DB_NAME}"
       DB_CA_CERT_PATH: "${DB_CA_CERT_PATH}"
       DJANGO_SETTINGS_MODULE: "${DJANGO_SETTINGS_MODULE}"
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py createsuperuser --noinput --username=$DJANGO_SUPERUSER_NAME --email=$DJANGO_SUPERUSER_EMAIL || true &&
+             gunicorn --bind 0.0.0.0:8000 gfunbackend.wsgi:application --workers 4 --timeout 60"
 
   wordpress:
     image: wordpress:latest
